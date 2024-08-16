@@ -151,4 +151,9 @@ document.getElementById('get-score-button').addEventListener('click', async () =
     document.getElementById('recents-view').style.display = 'none';
     document.getElementById('about-view').style.display = 'none';
   }
-  
+  function showAbout() {
+    document.getElementById('home-view').style.display = 'none';
+    document.getElementById('results-view').style.display = 'none';
+    document.getElementById('recents-view').style.display = 'none';
+    document.getElementById('about-view').style.display = 'block';
+}
