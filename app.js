@@ -152,16 +152,16 @@ app.post('/api/searches', async (req, res) => {
 });
 
 // Get all search entries
-app.get('/api/searches', async (req, res) => {
-  try {
-    const result = await db.allDocs({ include_docs: true, descending: true });
-    const searches = result.rows.map(row => row.doc);
-    res.json(searches);
-  } catch (error) {
-    console.error('Error fetching search entries:', error.message);
-    res.status(500).json({ error: 'Failed to fetch search entries' });
-  }
-});
+  app.get('/api/searches', async (req, res) => {
+    try {
+      const result = await db.allDocs({ include_docs: true, descending: true });
+      const searches = result.rows.map(row => row.doc);
+      res.json(searches);
+    } catch (error) {
+      console.error('Error fetching search entries:', error.message);
+      res.status(500).json({ error: 'Failed to fetch search entries' });
+    }
+  });
 
 // Get a single search entry by ID
 app.get('/api/searches/:id', async (req, res) => {

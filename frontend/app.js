@@ -14,7 +14,7 @@ document.getElementById('get-score-button').addEventListener('click', async () =
 
     
     try {
-      //calls the APi (local one in this case) with a get method and the provided zip. 
+      //calls the APi  with a get method and the provided zip, utilizes the fetch method. 
       const response = await fetch(`http://localhost:5001/api/weather/${zip}`, { method: 'GET' });
       
       //if there is no real response 
@@ -36,6 +36,7 @@ document.getElementById('get-score-button').addEventListener('click', async () =
       document.getElementById('wind').textContent = searchEntry.wind;
       document.getElementById('rideability-score').textContent = searchEntry.rideabilityScore;
   
+      //switches to results page 
       showResults();
 
       // If data is not properly sent back 
@@ -151,4 +152,9 @@ document.getElementById('get-score-button').addEventListener('click', async () =
     document.getElementById('recents-view').style.display = 'none';
     document.getElementById('about-view').style.display = 'none';
   }
-  
+  function showAbout() {
+    document.getElementById('home-view').style.display = 'none';
+    document.getElementById('results-view').style.display = 'none';
+    document.getElementById('recents-view').style.display = 'none';
+    document.getElementById('about-view').style.display = 'block';
+}
